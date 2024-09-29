@@ -17,6 +17,9 @@ const generateText = async (content: string) => {
   });
 
   console.log(completion.choices[0].message.content);
+  return (
+    completion.choices[0].message.content || "I'm sorry, I don't understand."
+  );
 };
 
 export default generateText;

@@ -3,7 +3,11 @@ import { Textarea } from "@mantine/core";
 import { useState } from "react";
 import generateText from "../actions/generateText";
 
-const Chatbox = () => {
+type ChatboxProps = {
+  onEnter: (message: string) => void;
+};
+const Chatbox = (props: ChatboxProps) => {
+  const { onEnter } = props;
   const [value, setValue] = useState("");
 
   const handleKeyDown = async (
@@ -11,7 +15,8 @@ const Chatbox = () => {
   ) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      await generateText(value);
+      //await generateText(value);
+      onEnter(value);
       setValue("");
     }
   };
