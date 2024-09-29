@@ -1,13 +1,17 @@
 "use client";
 import { Textarea } from "@mantine/core";
 import { useState } from "react";
+import generateText from "../actions/generateText";
 
 const Chatbox = () => {
   const [value, setValue] = useState("");
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = async (
+    event: React.KeyboardEvent<HTMLTextAreaElement>
+  ) => {
     if (event.key === "Enter") {
       event.preventDefault();
+      await generateText(value);
       setValue("");
     }
   };
