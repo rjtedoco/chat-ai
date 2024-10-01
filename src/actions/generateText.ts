@@ -8,7 +8,6 @@ import { Message } from "@/types/chat";
 export async function generateText(messages: Message[]) {
   const stream = createStreamableValue("");
 
-  console.log("messages inputted: ", messages);
   (async () => {
     const { textStream } = await streamText({
       model: openai("gpt-4o"),
