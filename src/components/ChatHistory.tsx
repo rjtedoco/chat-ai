@@ -10,7 +10,7 @@ const ChatHistory = (props: ChatHistoryProps) => {
   const theme = useMantineTheme();
 
   return (
-    <ScrollArea mah={500} px={"md"}>
+    <ScrollArea mah={500} offsetScrollbars>
       {messages &&
         messages.map((message, index) => (
           <Text

@@ -22,7 +22,7 @@ const Chatbox = (props: ChatboxProps) => {
         onEnter(value);
         setValue({
           role: "user",
-          content: value.content,
+          content: "",
         });
       }
     }
