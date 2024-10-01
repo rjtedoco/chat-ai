@@ -14,11 +14,7 @@ const ChatHistory = (props: ChatHistoryProps) => {
       {messages &&
         messages.map((message, index) => (
           <Text
-            c={
-              message.role === "assistant"
-                ? theme.colors.blue[7]
-                : theme.colors.dark[7]
-            }
+            c={message.role === "assistant" ? theme.colors.blue[9] : undefined}
             ta={message.role === "assistant" ? "left" : "right"}
             key={index}
           >

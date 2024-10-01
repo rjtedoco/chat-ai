@@ -18,13 +18,17 @@ const Chatbox = (props: ChatboxProps) => {
   ) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
-      if (value) {
-        onEnter(value);
-        setValue({
-          role: "user",
-          content: "",
-        });
-      }
+      handleSend();
+    }
+  };
+
+  const handleSend = () => {
+    if (value) {
+      onEnter(value);
+      setValue({
+        role: "user",
+        content: "",
+      });
     }
   };
 
@@ -43,7 +47,7 @@ const Chatbox = (props: ChatboxProps) => {
         }
         onKeyDown={handleKeyDown}
       />
-      <ActionIcon size="lg" variant="outline">
+      <ActionIcon size="lg" variant="outline" onClick={handleSend}>
         <IconSend />
       </ActionIcon>
     </Group>
